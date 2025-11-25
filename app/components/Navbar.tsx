@@ -25,7 +25,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-zinc-900/90 backdrop-blur-md shadow-lg border-b border-zinc-800'
+          ? 'bg-white/90 backdrop-blur-md shadow-lg border-b border-black/10'
           : 'bg-transparent'
       }`}
     >
@@ -33,7 +33,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <a
             href="#"
-            className="text-xl font-light tracking-wide transition-colors text-white hover:opacity-80"
+            className="text-xl font-light tracking-wide transition-colors text-black hover:opacity-80"
           >
             KG
           </a>
@@ -44,7 +44,7 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-sm font-light tracking-wider transition-colors text-white/80 hover:text-white hover:opacity-100"
+                className="text-sm font-light tracking-wider transition-colors text-black/80 hover:text-black hover:opacity-100"
               >
                 {item.name}
               </a>
@@ -53,7 +53,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden transition-colors text-white"
+            className="md:hidden transition-colors text-black"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -69,12 +69,12 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-white/10">
+          <div className="md:hidden mt-4 pb-4 border-t border-black/10">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block py-3 text-sm font-light transition-colors text-white/80 hover:text-white"
+                className="block py-3 text-sm font-light transition-colors text-black/80 hover:text-black"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.name}

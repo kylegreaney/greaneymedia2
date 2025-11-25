@@ -19,14 +19,18 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+  height: 100%;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
+  overflow: hidden;
+  height: 100%;
 }
 
 /* Custom animations */
@@ -93,4 +97,94 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Page Loader Wave Animation */
+.greaney-loader {
+  position: relative;
+  color: black;
+  background: linear-gradient(
+    90deg,
+    black 0%,
+    black 25%,
+    white 30%,
+    white 70%,
+    black 75%,
+    black 100%
+  );
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: wave-load 2.5s ease-in-out forwards;
+}
+
+@keyframes wave-load {
+  0% {
+    background-position: 400% 0;
+    -webkit-text-fill-color: black;
+    color: black;
+  }
+  30% {
+    background-position: 0% 0;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  70% {
+    background-position: -200% 0;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  100% {
+    background-position: -400% 0;
+    -webkit-text-fill-color: white;
+    color: white;
+    opacity: 0;
+  }
+}
+
+/* Hero Fade-in Animations */
+.hero-fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.hero-fade-in.hero-visible {
+  opacity: 1;
+}
+
+.hero-fade-in-delay-1 {
+  opacity: 0;
+  transition: opacity 0.8s ease-out 0.1s;
+}
+
+.hero-fade-in-delay-1.hero-visible {
+  opacity: 1;
+}
+
+.hero-fade-in-delay-2 {
+  opacity: 0;
+  transition: opacity 0.8s ease-out 0.2s;
+}
+
+.hero-fade-in-delay-2.hero-visible {
+  opacity: 1;
+}
+
+.hero-fade-in-delay-3 {
+  opacity: 0;
+  transition: opacity 0.8s ease-out 0.3s;
+}
+
+.hero-fade-in-delay-3.hero-visible {
+  opacity: 1;
+}
+
+.hero-fade-in-delay-4 {
+  opacity: 0;
+  transition: opacity 0.8s ease-out 0.4s;
+}
+
+.hero-fade-in-delay-4.hero-visible {
+  opacity: 1;
 }

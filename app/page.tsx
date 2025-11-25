@@ -1,7 +1,8 @@
+'use client';
+
+import { useState } from 'react';
 import Hero from './components/Hero';
-import WorkSection from './components/WorkSection';
-import Contact from './components/Contact';
-import Navbar from './components/Navbar';
+import PageLoader from './components/PageLoader';
 
 // ============================================
 // YOUR PORTFOLIO CONTENT
@@ -78,27 +79,27 @@ const designWork: WorkItem[] = [
     category: 'Design',
     image: '/portfolio/design/AD0E842A-D1B6-402E-BE0E-7A14B34B1CA8.webp',
   },
+  {
+    id: '11',
+    title: 'Fuck What They Say',
+    category: 'Design',
+    image: '/portfolio/design/FTWS.png',
+  },
+  {
+    id: '12',
+    title: 'Greaney Western',
+    category: 'Design',
+    image: '/portfolio/design/GREANEYBKG.png',
+  },
 ];
 
 // Film work
 const filmWork: WorkItem[] = [
   {
     id: '1',
-    title: 'Esports Promo',
+    title: 'GREANEY Film Reel',
     category: 'Film',
-    video: '/portfolio/film/Esportspromo.mp4',
-  },
-  {
-    id: '2',
-    title: 'Face The Storm',
-    category: 'Film',
-    video: '/portfolio/film/FACETHESTORM.mp4',
-  },
-  {
-    id: '3',
-    title: 'Project 1 Final',
-    category: 'Film',
-    video: '/portfolio/film/PROJECT1FINAL.mov',
+    video: 'https://youtu.be/dfN-qBvfQko',
   },
 ];
 
@@ -209,28 +210,19 @@ const modelingWork: WorkItem[] = [
 ];
 
 export default function Home() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   return (
-    <main className="relative bg-zinc-950">
-      <Navbar />
-      <Hero />
-      <div id="work">
-        <WorkSection 
-          title="Modeling" 
-          category="modeling" 
-          items={modelingWork} 
+    <>
+      <PageLoader onLoadComplete={() => setIsLoaded(true)} />
+      <main className="relative bg-white overflow-hidden" style={{ height: '100vh', overflow: 'hidden' }}>
+        <Hero 
+          modelingWork={modelingWork}
+          filmWork={filmWork}
+          designWork={designWork}
+          isLoaded={isLoaded}
         />
-        <WorkSection 
-          title="Film" 
-          category="film" 
-          items={filmWork} 
-        />
-        <WorkSection 
-          title="Design" 
-          category="design" 
-          items={designWork} 
-        />
-      </div>
-      <Contact />
-    </main>
+      </main>
+    </>
   );
 }

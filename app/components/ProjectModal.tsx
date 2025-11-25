@@ -48,9 +48,10 @@ export default function ProjectModal({ item, isOpen, onClose }: ProjectModalProp
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm transition-opacity duration-300 ${
+      className={`fixed inset-0 flex items-center justify-center bg-black/95 backdrop-blur-sm transition-opacity duration-300 ${
         isOpen ? 'opacity-100' : 'opacity-0'
       }`}
+      style={{ zIndex: 100 }}
       onClick={onClose}
     >
       {/* Close Button */}

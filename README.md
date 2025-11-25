@@ -192,6 +192,3 @@ If you need to make changes or have questions about updating your portfolio, ref
 ---
 
 **Note:** Make sure to replace placeholder content (like email addresses and social media links) with your actual contact information before deploying!
-# greaneymedia
-# greaneymedia2
-# greaneymedia2
